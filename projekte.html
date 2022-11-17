@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todos</title>
+    <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<div class="container-fluid">
+    <header class="bg-light header">Aufgabenplaner: Projekte</header>
+    <div class="row">
+        <div class="col-2">
+            <ul class="list-group">
+                <li class="list-group-item"><a href="login.html">Login</a></li>
+                <li class="list-group-item"><a href="projekte.html">Projekte</a></li>
+                <li class="list-group-item"><a href="aktuelles_projekt.html">Aktuelles Projekt</a></li>
+                <li class="list-group-item ms-4"><a href="reiter.html">Reiter</a></li>
+                <li class="list-group-item ms-4"><a href="aufgaben.html">Aufgaben</a></li>
+                <li class="list-group-item ms-4"><a href="mitglieder.html">Mitglieder</a></li>
+            </ul>
+        </div>
+
+        <div class="col-10">
+            <form>
+                <div class="form-group">
+                    <h4 class="">Projekt auswählen:</h4>
+                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">
+                        <option selected>- bitte auswählen -</option>
+                    </select>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-primary mt-4 ml-1 mr-1" type="submit">
+                                Auswählen
+                            </button>
+                            <button class="btn btn-primary mt-4 ml-1 mr-1" type="submit">
+                                Bearbeiten
+                            </button>
+                            <button class="btn btn-danger mt-4 ml-1 mr-1" type="submit">
+                                Löschen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <form class="mt-4">
+                <h4 class="">Projekt bearbeiten/erstellen</h4>
+                <div class="form-group mt-2">
+                    <label class="mb-2" for="project-name">Projektname:</label>
+                    <input aria-label="Projektname" class="form-control" id="project-name" placeholder="Projekt"
+                           type="">
+                </div>
+                <div class="form-group mt-2">
+                    <label class="mb-2" for="project-description">Projektname:</label>
+                    <textarea aria-label="Projektbeschreibung" class="form-control" id="project-description"
+                              placeholder="Projektbeschreibung" rows="4"
+                              type=""></textarea>
+                </div>
+                <button class="btn btn-primary mt-4 ml-1 mr-1" type="submit">
+                    Speichern
+                </button>
+                <button class="btn btn-info mt-4 ml-1 mr-1" type="submit">
+                    Reset
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
