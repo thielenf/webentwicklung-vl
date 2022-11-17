@@ -1,0 +1,12 @@
+body {
+    font-family: sans-serif;
+}
+a {
+    text-decoration: none;
+}
+.header {
+    font-size: 2em;
+    text-align: center;
+    padding: 1em;
+    margin-bottom: 1em;
+}
