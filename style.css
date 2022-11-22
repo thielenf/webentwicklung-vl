@@ -7,8 +7,6 @@ a {
 }
 
 .header {
-    font-size: 2em;
+    font-size: 2rem;
     text-align: center;
-    padding: 1em;
-    margin-bottom: 1em;
 }
