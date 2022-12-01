@@ -8,17 +8,10 @@
 </head>
 <body>
 <div class="container-fluid">
-    <header class="bg-light header">Aufgabenplaner: Todos (Aktuelles Projekt)</header>
+    <?php include("header.php"); ?>
     <div class="row">
         <div class="col-2">
-            <ul class="list-group">
-                <li class="list-group-item"><a href="login.html">Login</a></li>
-                <li class="list-group-item"><a href="projekte.html">Projekte</a></li>
-                <li class="list-group-item"><a href="">Aktuelles Projekt</a></li>
-                <li class="list-group-item ms-4"><a href="">Reiter</a></li>
-                <li class="list-group-item ms-4"><a href="">Aufgaben</a></li>
-                <li class="list-group-item ms-4"><a href="">Mitglieder</a></li>
-            </ul>
+            <?php include("navigation.php"); ?>
         </div>
 
         <div class="col-10">

@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container-fluid">
-    <header class="bg-light header">Aufgabenplaner: Login</header>
+    <?php include("header.php"); ?>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form>
@@ -21,7 +21,8 @@
                            type="password">
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" id="agb" type="checkbox" value="" aria-label="AGB und Datenschutzbedingungen akzeptieren">
+                    <input class="form-check-input" id="agb" type="checkbox" value=""
+                           aria-label="AGB und Datenschutzbedingungen akzeptieren">
                     <label class="form-check-label"
                            for="agb">AGBs und Datenschutzbedingungen akzeptieren</label>
                 </div>
@@ -29,7 +30,7 @@
                     Einloggen
                 </button>
                 <p>Noch nicht registriert? <a href="" aria-label="Registrierung">Registrierung</a></p>
-                <p>Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todos.html">Überspringen</a></p>
+                <p>Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todos.php">Überspringen</a></p>
             </form>
         </div>
     </div>
