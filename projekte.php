@@ -14,7 +14,7 @@
             <?php include("navigation.php"); ?>
         </div>
 
-        <div class="col-10">
+        <div class="col-8">
             <form class="mb-3">
                 <div class="form-group">
                     <h4 class="">Projekt auswählen:</h4>
