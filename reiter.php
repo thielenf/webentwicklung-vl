@@ -15,10 +15,10 @@
             <?php include("navigation.php"); ?>
         </div>
 
-        <div class="col-10">
+        <div class="col-8">
 
             <table class="table fs-smaller">
-                <thead class="thead-light">
+                <thead class="table-light">
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Beschreibung</th>
@@ -29,20 +29,26 @@
                 <tr>
                     <td class="w-25">ToDo</td>
                     <td>Dinge, die erledigt werden müssen</td>
-                    <td class="justify-content-end"><i class="fa-regular fa-pen-to-square"></i><i
-                                class="fa-regular fa-trash-can"></i></td>
+                    <td class="">
+                        <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
+                        <a href=""><i class="table-icon fa-regular fa-pen-to-square"></i></a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="w-25">Erledigt</td>
                     <td>Dinge, die erledigt sind</td>
-                    <td class="justify-content-end"><i class="fa-regular fa-pen-to-square"></i><i
-                                class="fa-regular fa-trash-can"></i></td>
+                    <td class="">
+                        <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
+                        <a href=""><i class="table-icon fa-regular fa-pen-to-square"></i></a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="w-25">Verschoben</td>
                     <td>Dinge, die später erledigt werden</td>
-                    <td class="align-content-end"><i class="fa-regular fa-pen-to-square"></i><i
-                                class="fa-regular fa-trash-can"></i></td>
+                    <td class="">
+                        <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
+                        <a href=""><i class="table-icon fa-regular fa-pen-to-square"></i></a>
+                    </td>
                 </tr>
                 </tbody>
             </table>

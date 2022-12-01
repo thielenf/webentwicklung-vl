@@ -25,3 +25,9 @@ a {
 .fs-smaller {
     font-size: 0.75rem;
 }
+
+.table-icon {
+    margin: 0.75rem;
+    font-size: initial;
+    float: right;
+}
