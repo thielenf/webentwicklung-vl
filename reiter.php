@@ -26,30 +26,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td class="w-25">ToDo</td>
-                    <td>Dinge, die erledigt werden müssen</td>
-                    <td class="">
-                        <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
-                        <a href=""><i class="table-icon fa-regular fa-pen-to-square"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="w-25">Erledigt</td>
-                    <td>Dinge, die erledigt sind</td>
-                    <td class="">
-                        <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
-                        <a href=""><i class="table-icon fa-regular fa-pen-to-square"></i></a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="w-25">Verschoben</td>
-                    <td>Dinge, die später erledigt werden</td>
-                    <td class="">
-                        <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
-                        <a href=""><i class="table-icon fa-regular fa-pen-to-square"></i></a>
-                    </td>
-                </tr>
+                <?php
+                include("tab_data.php");
+                foreach (get_tab_data() as $data) {
+                    echo "<tr><td class=\"w-25\">" . $data['name'] . "</td>";
+                    echo "<td>" . $data['description'] . "</td>";
+                    echo "<td class=\"\"><a href=\"\"><i class=\"table-icon fa-regular fa-trash-can\"></i></a><a href=\"\"><i class=\"table-icon fa-regular fa-pen-to-square\"></i></a></td></tr>";
+                }
+                ?>
                 </tbody>
             </table>
             <form class="mb-3">
