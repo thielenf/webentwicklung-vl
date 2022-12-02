@@ -16,32 +16,19 @@
 
         <div class="col-10">
             <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <p class="card-header">ToDo</p>
-                        <ul class="list-group">
-                            <li class="list-group-item">HTML Datei erstellen (Max Mustermann)</li>
-                            <li class="list-group-item">CSS Datei erstellen (Max Mustermann)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <p class="card-header">Erledigt</p>
-                        <ul class="list-group">
-                            <li class="list-group-item">PC eingeschaltet (Petra Müller)</li>
-                            <li class="list-group-item">Kaffee trinken (Petra Müller)</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <p class="card-header">Verschoben</p>
-                        <ul class="list-group">
-                            <li class="list-group-item">Für die Uni lernen (Max Mustermann)</li>
-                        </ul>
-                    </div>
-                </div>
+                <?php
+                include("todo_data.php");
+
+                foreach (get_todo_data() as $data) {
+                    echo '<div class="col"><div class="card">';
+                    echo '<p class="card-header">' . $data["name"] . '</p>';
+                    echo '<ul class="list-group">';
+                    foreach ($data["items"] as $item) {
+                        echo '<li class="list-group-item">' . $item . '</li>';
+                    }
+                    echo '</ul></div></div>';
+                }
+                ?>
             </div>
         </div>
 
