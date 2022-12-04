@@ -73,15 +73,18 @@
             <form class="mb-3">
                 <div class="form-group">
                     <label class="form-label mb-2" for="tab-Zugehöriger Reiter">Zugehöriger Reiter:</label>
-                    <input aria-label="Zugehöriger Reiter" class="form-control" id="tab-Zugehöriger Reiter"
-                           placeholder="ToDo">
+                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">   <!--Dropdown menü-->
+                        <option selected> ToDo </option>
+                    </select>
                 </div>
             </form>
             <form class="mb-3">
                 <div class="form-group">
                     <label class="form-label mb-2" for="tab-Zuständig">Zuständig:</label>
-                    <input aria-label="Zuständig" class="form-control" id="tab-Zuständig"
-                           placeholder="Max Mustermann">
+
+                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">   <!--Dropdown menü-->
+                        <option selected> Max Mustermann</option>
+                    </select>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-primary" type="submit">
