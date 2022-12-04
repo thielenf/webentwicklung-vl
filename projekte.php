@@ -18,7 +18,7 @@
             <form class="mb-3">
                 <div class="form-group">
                     <h4 class="">Projekt auswählen:</h4>
-                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">
+                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">   <!--Dropdown menü-->
                         <option selected>- bitte auswählen -</option>
                     </select>
                     <div class="mt-3">
@@ -46,7 +46,7 @@
                     <label class="form-label mb-2" for="project-description">Projektbeschreibung:</label>
                     <textarea aria-label="Projektbeschreibung" class="form-control" id="project-description"
                               placeholder="Projektbeschreibung" rows="4"
-                              type=""></textarea>
+                              ></textarea>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-primary" type="submit">
