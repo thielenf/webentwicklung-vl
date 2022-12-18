@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-class Personen extends BaseController
+class Mitglieder extends BaseController
 {
     public function index()
     {
@@ -19,6 +19,8 @@ class Personen extends BaseController
             ),
 
         );
-        return view('Personen/Personen', ['data' => $data]);
+        echo view('templates/header');
+        echo view('Mitglieder/Mitglieder', ['data' => $data]);
+        echo view('templates/footer');
     }
 }

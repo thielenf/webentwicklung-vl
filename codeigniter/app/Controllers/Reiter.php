@@ -6,6 +6,8 @@ class Reiter extends BaseController
 {
     public function index()
     {
-        return view('Reiter/Reiter');
+        echo view('templates/header');
+        echo view('Reiter/Reiter');
+        echo view('templates/footer');
     }
 }

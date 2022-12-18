@@ -38,7 +38,7 @@ $routes->set404Override();
 $routes->get('/', 'Login::index');
 $routes->get('/Login', 'Login::index');
 $routes->get('/Aufgaben', 'Aufgaben::index');
-$routes->get('/Personen', 'Personen::index');
+$routes->get('/Mitglieder', 'Mitglieder::index');
 $routes->get('/Reiter', 'Reiter::index');
 $routes->get('/Todos', 'Todos::index');
 $routes->get('/Projekte', 'Projekte::index');

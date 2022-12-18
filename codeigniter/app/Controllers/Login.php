@@ -6,6 +6,8 @@ class Login extends BaseController
 {
     public function index()
     {
-        return view('login');
+        echo view('templates/header');
+        echo view('login');
+        echo view('templates/footer');
     }
 }

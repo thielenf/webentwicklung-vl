@@ -6,6 +6,8 @@ class Todos extends BaseController
 {
     public function index()
     {
-        return view('Todos/Todos');
+        echo view('templates/header');
+        echo view('Todos/Todos');
+        echo view('templates/footer');
     }
 }
