@@ -19,12 +19,11 @@
                 </thead>
                 <tbody>
                 <?php
-                include("tab_data_aufgaben.php");
-                foreach (get_tab_data() as $data) {
-                    echo "<tr><td class=\"w-25\">" . $data['aufgabenbezeichnung'] . "</td>";
-                    echo "<td>" . $data['description'] . "</td>";
-                    echo "<td>" . $data['reiter'] . "</td>";
-                    echo "<td>" . $data['who'] . "</td>";
+                foreach ($data['tasks'] as $item) {
+                    echo "<tr><td class=\"w-25\">" . $item['aufgabenbezeichnung'] . "</td>";
+                    echo "<td>" . $item['description'] . "</td>";
+                    echo "<td>" . $item['reiter'] . "</td>";
+                    echo "<td>" . $item['who'] . "</td>";
                     echo "<td class=\"\"><a href=\"\"><i class=\"table-icon fa-regular fa-trash-can\"></i></a><a href=\"\"><i class=\"table-icon fa-regular fa-pen-to-square\"></i></a></td></tr>";
                 }
                 ?>

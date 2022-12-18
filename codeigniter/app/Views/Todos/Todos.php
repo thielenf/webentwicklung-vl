@@ -8,14 +8,12 @@
         <div class="col-10">
             <div class="row">
                 <?php
-                include("todo_data.php");
-
-                foreach (get_todo_data() as $data) {
+                foreach ($data['todos'] as $item) {
                     echo '<div class="col"><div class="card">';
-                    echo '<p class="card-header">' . $data["name"] . '</p>';
+                    echo '<p class="card-header">' . $item["name"] . '</p>';
                     echo '<ul class="list-group">';
-                    foreach ($data["items"] as $item) {
-                        echo '<li class="list-group-item">' . $item . '</li>';
+                    foreach ($item["subitems"] as $list_item) {
+                        echo '<li class="list-group-item">' . $list_item . '</li>';
                     }
                     echo '</ul></div></div>';
                 }

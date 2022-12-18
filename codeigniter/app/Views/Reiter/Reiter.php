@@ -17,10 +17,9 @@
                 </thead>
                 <tbody>
                 <?php
-                include("tab_data.php");
-                foreach (get_tab_data() as $data) {
-                    echo "<tr><td class=\"w-25\">" . $data['name'] . "</td>";
-                    echo "<td>" . $data['description'] . "</td>";
+                foreach ($data['tabs'] as $item) {
+                    echo "<tr><td class=\"w-25\">" . $item['name'] . "</td>";
+                    echo "<td>" . $item['description'] . "</td>";
                     echo "<td class=\"\"><a href=\"\"><i class=\"table-icon fa-regular fa-trash-can\"></i></a><a href=\"\"><i class=\"table-icon fa-regular fa-pen-to-square\"></i></a></td></tr>";
                 }
                 ?>
