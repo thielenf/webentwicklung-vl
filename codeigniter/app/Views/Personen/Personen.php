@@ -28,11 +28,10 @@
                 </thead>
                 <tbody>
                 <?php
-                include("tab_data_persons.php");
-                foreach (get_tab_data() as $data) {
-                    echo "<tr><td class=\"w-25\">" . $data['name'] . "</td>";
-                    echo "<td>" . $data['E-Mail'] . "</td>";
-                    echo '<td><input type="checkbox" id="imProjekt" name="checkbox1" ' . ($data['ismember'] ? "checked" : "") . '>
+                foreach ($data['mitglieder'] as $item) {
+                    echo "<tr><td class=\"w-25\">" . $item['name'] . "</td>";
+                    echo "<td>" . $item['E-Mail'] . "</td>";
+                    echo '<td><input type="checkbox" id="imProjekt" name="checkbox1" ' . ($item['ismember'] ? "checked" : "") . '>
                 <label for="checkbox1"></label><br> </td>';
                     echo "<td class=\"\"><a href=\"\"><i class=\"table-icon fa-regular fa-trash-can\"></i></a><a href=\"\"><i class=\"table-icon fa-regular fa-pen-to-square\"></i></a></td></tr>";
                 }
