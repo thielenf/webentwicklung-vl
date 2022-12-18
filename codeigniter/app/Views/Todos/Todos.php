@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>Todos</title>
     <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/webentwicklung-vl/codeigniter/public/css/style.css">
 </head>
 <body>
 <div class="container-fluid">
-    <?php include("header.php"); ?>
+    <?php include(APPPATH . "/Views/templates/header.php"); ?>
     <div class="row">
         <div class="col-2">
-            <?php include("navigation.php"); ?>
+            <?php include(APPPATH . "/Views/templates/navigation.php"); ?>
         </div>
 
         <div class="col-10">

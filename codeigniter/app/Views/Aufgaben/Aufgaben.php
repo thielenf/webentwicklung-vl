@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <title>Todos</title>
     <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/webentwicklung-vl/codeigniter/public/css/style.css">
     <script crossorigin="anonymous" src="https://kit.fontawesome.com/8458bdbd82.js"></script>
 </head>
 <body>
 <div class="container-fluid">
-    <?php include("header.php"); ?>
+    <?php include(APPPATH . "/Views/templates/header.php"); ?>
     <div class="row">
         <div class="col-2">
-            <?php include("navigation.php"); ?>
+            <?php include(APPPATH . "/Views/templates/navigation.php"); ?>
         </div>
 
         <div class="col-8">
@@ -53,7 +53,7 @@
                     <label class="form-label mb-2" for="tab-description">Beschreibung der Aufgabe:</label>
                     <textarea aria-label="Beschreibung" class="form-control" id="tab-description"
                               placeholder="Beschreibung" rows="4"
-                              ></textarea>
+                    ></textarea>
                 </div>
             </form>
             <form class="mb-3">
