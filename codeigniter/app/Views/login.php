@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title>Todos</title>
     <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/webentwicklung-vl/codeigniter/public/css/style.css">
 </head>
 <body>
 <div class="container-fluid">
-    <?php include("header.php"); ?>
+    <?php include("templates/header.php"); ?>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form>
