@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todos</title>
-    <link href="https://unpkg.com/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="/webentwicklung-vl/codeigniter/public/css/style.css">
-</head>
-<body>
 <div class="container-fluid">
-    <?php include("templates/header.php"); ?>
     <div class="row justify-content-center">
         <div class="col-md-8">
             <form>
@@ -30,11 +20,8 @@
                     Einloggen
                 </button>
                 <p>Noch nicht registriert? <a href="" aria-label="Registrierung">Registrierung</a></p>
-                <p>Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="todos.php">Überspringen</a></p>
+                <p>Da der Login Vorgang technisch noch nicht realisiert wurde: <a href="Todos/">Überspringen</a></p>
             </form>
         </div>
     </div>
 </div>
-
-</body>
-</html>
