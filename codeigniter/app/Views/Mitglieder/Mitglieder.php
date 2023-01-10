@@ -30,7 +30,7 @@
             <table class="table fs-smaller">
                 <thead class="table-light">
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col">Username</th>
                     <th scope="col">E-Mail</th>
                     <th scope="col">Im Projekt:</th>
                     <th scope="col"></th>
@@ -39,7 +39,7 @@
                 <tbody>
                 <? foreach ($data['mitglieder'] as $item): ?>
                     <tr>
-                        <td class="w-25"> <?= $item['id'] ?> </td>
+                        <td class="w-25"> <?= $item['username'] ?> </td>
                         <td> <?= $item['email'] ?> </td>
                         <td><input type="checkbox" id="imProjekt"
                                    name="checkbox1" <?= (isset($item['ismember']) && ($item['ismember']) ? "checked" : "") ?>
