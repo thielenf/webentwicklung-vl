@@ -23,4 +23,14 @@ class MitgliederModel extends Model
             return $result->getResultArray();
     }
 
+    public function login($username)
+    {
+        $members = $this->db->table('members');
+        $members->select('password');
+        $members->where('id', $username);
+        $result = $members->get();
+
+        return $result->getRowArray();
+    }
+
 }
