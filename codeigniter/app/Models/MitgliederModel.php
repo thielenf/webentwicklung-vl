@@ -77,7 +77,7 @@ class MitgliederModel extends Model
     {
         $members = $this->db->table('members');
         $members->where('id', $member_id);
-        // $members->delete();
+        $members->delete();
     }
 
 
