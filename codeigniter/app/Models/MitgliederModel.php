@@ -73,11 +73,11 @@ class MitgliederModel extends Model
         return $result->getRowArray();
     }
 
-    public function deleteMember()
+    public function deleteMember($member_id)
     {
         $members = $this->db->table('members');
-        $members->where('id', $_POST['id']);
-        $members->delete();
+        $members->where('id', $member_id);
+        // $members->delete();
     }
 
 

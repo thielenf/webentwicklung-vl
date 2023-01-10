@@ -38,4 +38,12 @@ class Mitglieder extends BaseController
         echo view('Mitglieder/Mitglieder', ['data' => $data]);
         echo view('templates/footer');
     }
+
+    public function deleteMember($member_id = null)
+    {
+        if ($member_id != null) {
+            $this->MitgliederModel->deleteMember($member_id);
+        }
+        $this->index();
+    }
 }

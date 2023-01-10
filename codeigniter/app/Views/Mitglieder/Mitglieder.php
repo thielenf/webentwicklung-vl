@@ -1,5 +1,26 @@
 <div class="container-fluid">
     <header class="bg-light header container-fluid">Aufgabenplaner: Mitglieder</header>
+
+    <!-- Modal -->
+    <div id="confirm-delete" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
     <div class="row">
         <div class="col-2">
             <?php include(APPPATH . "/Views/templates/navigation.php"); ?>
@@ -24,7 +45,10 @@
                                    name="checkbox1" <?= (isset($item['ismember']) && ($item['ismember']) ? "checked" : "") ?>
                             <label for="checkbox1"></label><br></td>
                         <td class="">
-                            <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
+                            <!-- FIXME: dirty! don't use GET! -->
+                            <a href="<?= base_url('/Mitglieder/delete/' . $item['id']) ?>" data-toggle="modal"
+                               data-target="#confirm-delete"><i
+                                        class="table-icon fa-regular fa-trash-can"></i></a>
                             <a href="<?= base_url('/Mitglieder/edit/' . $item['id']) ?>"><i
                                         class="table-icon fa-regular fa-pen-to-square"></i></a>
                         </td>
