@@ -56,7 +56,8 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <form action="<?= base_url('/Mitglieder/update') ?>" method="post" accept-charset="utf-8">
+            <form action="<?= base_url($data['mode'] == 0 ? '/Mitglieder/create' : '/Mitglieder/update') ?>"
+                  method="post" accept-charset="utf-8">
                 <legend class="">
                     <?
                     if ($data['mode'] == 0) {
@@ -81,7 +82,7 @@
                     <input aria-label="e-mail" class="form-control" id="email" name="email"
                            placeholder="email@example.com" value="<?= $data['item']['email'] ?? "" ?>">
                 </div>
-                <? if (isset($data['item']['username']) && (session()->get("username") == $data['item']['username'])): ?>
+                <? if (($data['mode'] == 0) || isset($data['item']['username']) && (session()->get("username") == $data['item']['username'])): ?>
                     <div class="form-group">
                         <label class="form-label mb-2" for="password">Passwort:</label>
                         <input aria-label="password" class="form-control" id="password" name="password"

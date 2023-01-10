@@ -30,10 +30,12 @@ class Mitglieder extends BaseController
         $this->index($data);
     }
 
-    public function index($data = array())
+    public function index($data = array(), $mode = 0)
     {
         $data['mitglieder'] = $this->MitgliederModel->getMembers();
-        $data['mode'] = 0;
+        if (!isset($data['mode'])) {
+            $data['mode'] = 0;
+        }
         echo view('templates/header');
         echo view('Mitglieder/Mitglieder', ['data' => $data]);
         echo view('templates/footer');
@@ -44,6 +46,12 @@ class Mitglieder extends BaseController
         if ($member_id != null) {
             $this->MitgliederModel->deleteMember($member_id);
         }
+        $this->index();
+    }
+
+    public function createMember()
+    {
+        $this->MitgliederModel->createMember();
         $this->index();
     }
 }
