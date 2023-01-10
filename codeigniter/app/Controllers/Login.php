@@ -18,11 +18,12 @@ class Login extends BaseController
         helper('form');
 
         if (isset($_POST['username']) && isset($_POST['password'])) {
-            $known_login = $this->MitgliederModel->login($_POST['username']);
+            $known_login = $this->MitgliederModel->login();
 
             if (($known_login != NULL) && (password_verify($_POST['password'], $known_login['password']))) {
                 session()->set('logged_in', true);
-                return redirect()->to(base_url('/Mitglieder'));
+                session()->set('username', $_POST['username']);
+                return redirect()->to(base_url('/Projekte'));
             }
         }
 
