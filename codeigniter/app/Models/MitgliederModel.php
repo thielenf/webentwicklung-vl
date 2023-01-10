@@ -23,16 +23,6 @@ class MitgliederModel extends Model
             return $result->getResultArray();
     }
 
-    public function login()
-    {
-        $members = $this->db->table('members');
-        $members->select('password');
-        $members->where('username', $_POST['username']);
-        $result = $members->get();
-
-        return $result->getRowArray();
-    }
-
     public function createMember()
     {
         $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -64,13 +54,23 @@ class MitgliederModel extends Model
             'zip' => $_POST['zip'],
             'city' => $_POST['city'],
         );
-        if (isset($_POST['password'])) {
+        if ((isset($_POST['password'])) && ($_POST['password'] !== '')) {
             $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $data['password'] = $hashed_password;
         }
         $members = $this->db->table('members');
         $members->where('id', $_POST['id']);
         $members->update($data);
+    }
+
+    public function login()
+    {
+        $members = $this->db->table('members');
+        $members->select('password');
+        $members->where('username', $_POST['username']);
+        $result = $members->get();
+
+        return $result->getRowArray();
     }
 
     public function deleteMember()

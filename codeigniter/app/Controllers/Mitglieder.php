@@ -13,7 +13,24 @@ class Mitglieder extends BaseController
         $this->MitgliederModel = new MitgliederModel();
     }
 
-    public function index()
+    public function update()
+    {
+        $this->MitgliederModel->updateMember();
+
+        $this->edit($_POST['id']);
+    }
+
+    public function edit($member_id = null)
+    {
+        $data['mode'] = 1;
+        if ($member_id != null) {
+            $data['item'] = $this->MitgliederModel->getMembers($member_id);
+        }
+
+        $this->index($data);
+    }
+
+    public function index($data = array())
     {
         $data['mitglieder'] = $this->MitgliederModel->getMembers();
 

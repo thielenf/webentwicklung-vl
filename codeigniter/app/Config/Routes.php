@@ -40,6 +40,8 @@ $routes->get('/Login', 'Login::index');
 $routes->post('/Login', 'Login::index');
 $routes->get('/Aufgaben', 'Aufgaben::index');
 $routes->get('/Mitglieder', 'Mitglieder::index');
+$routes->get('/Mitglieder/edit/(:num)', 'Mitglieder::edit/$1');
+$routes->post('/Mitglieder/update', 'Mitglieder::update');
 $routes->get('/Reiter', 'Reiter::index');
 $routes->get('/Todos', 'Todos::index');
 $routes->get('/Projekte', 'Projekte::index');

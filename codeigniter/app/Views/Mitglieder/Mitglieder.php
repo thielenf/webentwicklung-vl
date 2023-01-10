@@ -4,7 +4,6 @@
         <div class="col-2">
             <?php include(APPPATH . "/Views/templates/navigation.php"); ?>
         </div>
-
         <div class="col-8">
 
             <table class="table fs-smaller">
@@ -17,48 +16,94 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                foreach ($data['mitglieder'] as $item) {
-                    echo "<tr><td class=\"w-25\">" . $item['id'] . "</td>";
-                    echo "<td>" . $item['email'] . "</td>";
-                    echo '<td><input type="checkbox" id="imProjekt" name="checkbox1" ' . (isset($item['ismember']) && ($item['ismember']) ? "checked" : "") . '>
-                <label for="checkbox1"></label><br> </td>';
-                    echo "<td class=\"\"><a href=\"\"><i class=\"table-icon fa-regular fa-trash-can\"></i></a><a href=\"\"><i class=\"table-icon fa-regular fa-pen-to-square\"></i></a></td></tr>";
-                }
-                ?>
+                <? foreach ($data['mitglieder'] as $item): ?>
+                    <tr>
+                        <td class="w-25"> <?= $item['id'] ?> </td>
+                        <td> <?= $item['email'] ?> </td>
+                        <td><input type="checkbox" id="imProjekt"
+                                   name="checkbox1" <?= (isset($item['ismember']) && ($item['ismember']) ? "checked" : "") ?>
+                            <label for="checkbox1"></label><br></td>
+                        <td class="">
+                            <a href=""><i class="table-icon fa-regular fa-trash-can"></i></a>
+                            <a href="<?= base_url('/Mitglieder/edit/' . $item['id']) ?>"><i
+                                        class="table-icon fa-regular fa-pen-to-square"></i></a>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
-            <form class="mb-3">
-                <h4 class="">Bearbeiten/Erstellen</h4>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="tab-Username">Username:</label>
-                    <input aria-label="Username" class="form-control" id="tab-Username"
-                           placeholder="Username">
+            <form action="<?= base_url('/Mitglieder/update') ?>" method="post" accept-charset="utf-8">
+                <legend class="">
+                    <?
+                    if (!isset($data['mode'])) {
+                        $data['mode'] = 0;
+                    }
+
+                    if ($data['mode'] == 0) {
+                        echo 'Erstellen';
+                    } elseif ($data['mode'] == 1) {
+                        echo 'Bearbeiten';
+                    }
+                    ?>
+                </legend>
+                <div class="form-group d-none">
+                    <label class="form-label mb-2" for="id">ID:</label>
+                    <input class="form-control" id="id" name="id"
+                           value="<?= $data['item']['id'] ?? "" ?>">
                 </div>
-            </form>
-            <form class="mb-3">
                 <div class="form-group">
-                    <label class="form-label mb-2" for="tab-E-Mail">E-Mail-Adresse:</label>
-                    <input aria-label="E-Mail" class="form-control" id="tab-E-Mail"
-                           placeholder="E-Mail-Adresse eingeben">
+                    <label class="form-label mb-2" for="username">Username:</label>
+                    <input aria-label="Username" class="form-control" id="username" name="username"
+                           placeholder="Username" value="<?= $data['item']['username'] ?? "" ?>">
                 </div>
-            </form>
-            <form class="mb-3">
                 <div class="form-group">
-                    <label class="form-label mb-2" for="tab-Passwort">Passwort:</label>
-                    <input aria-label="Passwort" class="form-control" id="tab-Passwort"
-                           placeholder="Passwort">
+                    <label class="form-label mb-2" for="email">E-Mail:</label>
+                    <input aria-label="e-mail" class="form-control" id="email" name="email"
+                           placeholder="email@example.com" value="<?= $data['item']['email'] ?? "" ?>">
                 </div>
-                <input type="checkbox" id="ismember" name="checkbox3" value="Check">
-                <label for="ismember"> Dem Projekt zugeordnet</label><br>
-                <div class="mt-3">
-                    <button class="btn btn-primary" type="submit">
+                <? if (isset($data['item']['username']) && (session()->get("username") == $data['item']['username'])): ?>
+                    <div class="form-group">
+                        <label class="form-label mb-2" for="password">Passwort:</label>
+                        <input aria-label="password" class="form-control" id="password" name="password"
+                               placeholder="********" type="password">
+                    </div>
+                <? endif; ?>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="firstname">Vorname:</label>
+                    <input aria-label="first name" class="form-control" id="firstname" name="firstname"
+                           placeholder="Max" value="<?= $data['item']['firstname'] ?? "" ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="lastname">Nachname:</label>
+                    <input aria-label="last name" class="form-control" id="lastname" name="lastname"
+                           placeholder="Mustermann" value="<?= $data['item']['lastname'] ?? "" ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="street">Straße und Hausnummer:</label>
+                    <input aria-label="street" class="form-control" id="street" name="street"
+                           placeholder="Musterweg 1" value="<?= $data['item']['street'] ?? "" ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="zip">PLZ:</label>
+                    <input aria-label="zip code" class="form-control" id="zip" name="zip"
+                           placeholder="12345" value="<?= $data['item']['zip'] ?? "" ?>">
+                </div>
+                <div class="form-group">
+                    <label class="form-label mb-2" for="city">Ort:</label>
+                    <input aria-label="city" class="form-control" id="city" name="city"
+                           placeholder="Musterstadt" value="<?= $data['item']['city'] ?? "" ?>">
+                </div>
+                <? if (!isset($data['mode']) || ($data['mode'] == 0)) : ?>
+                    <button type="submit" class="btn btn-success mt-2 mb-2 mr-2">
+                        Erstellen
+                    </button>
+                <? endif ?>
+
+                <? if ($data['mode'] == 1) : ?>
+                    <button type="submit" class="btn btn-success mt-2 mb-2 mr-2">
                         Speichern
                     </button>
-                    <button class="btn btn-info text-white" type="submit">
-                        Reset
-                    </button>
-                </div>
+                <? endif ?>
             </form>
         </div>
     </div>
