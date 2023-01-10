@@ -33,7 +33,7 @@ class Mitglieder extends BaseController
     public function index($data = array())
     {
         $data['mitglieder'] = $this->MitgliederModel->getMembers();
-
+        $data['mode'] = 0;
         echo view('templates/header');
         echo view('Mitglieder/Mitglieder', ['data' => $data]);
         echo view('templates/footer');

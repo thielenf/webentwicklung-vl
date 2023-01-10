@@ -59,10 +59,6 @@
             <form action="<?= base_url('/Mitglieder/update') ?>" method="post" accept-charset="utf-8">
                 <legend class="">
                     <?
-                    if (!isset($data['mode'])) {
-                        $data['mode'] = 0;
-                    }
-
                     if ($data['mode'] == 0) {
                         echo 'Erstellen';
                     } elseif ($data['mode'] == 1) {
