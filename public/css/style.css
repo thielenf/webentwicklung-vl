@@ -1,0 +1,33 @@
+body {
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 1rem;
+}
+
+.btn {
+    font-size: 0.75rem;
+}
+
+.form-select,
+.form-label {
+    font-size: 0.75rem;
+}
+
+.fs-smaller {
+    font-size: 0.75rem;
+}
+
+.table-icon {
+    margin: 0.75rem;
+    font-size: initial;
+    float: right;
+}
