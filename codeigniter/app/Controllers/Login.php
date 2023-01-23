@@ -17,7 +17,8 @@ class Login extends BaseController
     {
         helper('form');
 
-        if (isset($_POST['username']) && isset($_POST['password'])) {
+
+        if (isset($_POST['username']) and isset($_POST['password']) and $this->validation->run($_POST, 'login') === true) {
             $known_login = $this->MitgliederModel->login();
 
             if (($known_login != NULL) && (password_verify($_POST['password'], $known_login['password']))) {
@@ -25,11 +26,12 @@ class Login extends BaseController
                 session()->set('username', $_POST['username']);
                 return redirect()->to(base_url('/Projekte'));
             }
+        } else {
+            $data['error'] = $this->validation->getErrors();
         }
 
-
         echo view('templates/header');
-        echo view('login');
+        echo view('login', $data);
         echo view('templates/footer');
     }
 }
