@@ -40,12 +40,12 @@ $routes->get('/Login', 'Login::index');
 $routes->post('/Login', 'Login::index');
 $routes->get('/Aufgaben', 'Aufgaben::index');
 $routes->get('/Mitglieder', 'Mitglieder::index');
-$routes->get('/Mitglieder/edit/(:num)', 'Mitglieder::edit/$1');
+$routes->get('/Mitglieder/edit/(:any)', 'Mitglieder::edit/$1');
 $routes->post('/Mitglieder/update', 'Mitglieder::update');
 $routes->post('/Mitglieder/create', 'Mitglieder::createMember');
 $routes->get('/Projekte/create', 'Projekte::create');
 $routes->post('/Projekte/create', 'Projekte::create');
-$routes->get('/Mitglieder/delete/(:num)', 'Mitglieder::deleteMember/$1'); // FIXME: dirty! don't GET!
+$routes->get('/Mitglieder/delete/(:any)', 'Mitglieder::deleteMember/$1'); // FIXME: dirty! don't GET!
 $routes->get('/Reiter', 'Reiter::index');
 $routes->get('/Todos', 'Todos::index');
 $routes->get('/Projekte', 'Projekte::index');

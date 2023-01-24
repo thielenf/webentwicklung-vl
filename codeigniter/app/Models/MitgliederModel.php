@@ -28,14 +28,9 @@ class MitgliederModel extends Model
         $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
         $data = array(
-            'username' => $_POST['username'],
+            'id' => $_POST['username'],
             'email' => $_POST['email'],
             'password' => $hashed_password,
-            'firstname' => $_POST['firstname'],
-            'lastname' => $_POST['lastname'],
-            'street' => $_POST['street'],
-            'zip' => $_POST['zip'],
-            'city' => $_POST['city'],
         );
 
         $members = $this->db->table('members');
@@ -48,11 +43,6 @@ class MitgliederModel extends Model
             // TODO: should we be able to edit username?
             // 'username' => $_POST['username'],
             'email' => $_POST['email'],
-            'firstname' => $_POST['firstname'],
-            'lastname' => $_POST['lastname'],
-            'street' => $_POST['street'],
-            'zip' => $_POST['zip'],
-            'city' => $_POST['city'],
         );
         if ((isset($_POST['password'])) && ($_POST['password'] !== '')) {
             $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
@@ -67,7 +57,7 @@ class MitgliederModel extends Model
     {
         $members = $this->db->table('members');
         $members->select('password');
-        $members->where('username', $_POST['username']);
+        $members->where('id', $_POST['username']);
         $result = $members->get();
 
         return $result->getRowArray();

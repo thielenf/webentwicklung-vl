@@ -39,7 +39,7 @@
                 <tbody>
                 <?php foreach ($data['mitglieder'] as $item): ?>
                     <tr>
-                        <td class="w-25"> <?= $item['username'] ?> </td>
+                        <td class="w-25"> <?= $item['id'] ?> </td>
                         <td> <?= $item['email'] ?> </td>
                         <td><input type="checkbox" id="imProjekt"
                                    name="checkbox1" <?= (isset($item['ismember']) && ($item['ismember']) ? "checked" : "") ?>
@@ -67,53 +67,23 @@
                     }
                     ?>
                 </legend>
-                <div class="form-group d-none">
-                    <label class="form-label mb-2" for="id">ID:</label>
-                    <input class="form-control" id="id" name="id"
-                           value="<?= $data['item']['id'] ?? "" ?>">
-                </div>
                 <div class="form-group">
                     <label class="form-label mb-2" for="username">Username:</label>
-                    <input aria-label="Username" class="form-control" id="username" name="username"
-                           placeholder="Username" value="<?= $data['item']['username'] ?? "" ?>">
+                    <input aria-label="Username" class="form-control" id="id" name="id"
+                           placeholder="Username" value="<?= $data['item']['id'] ?? "" ?>">
                 </div>
                 <div class="form-group">
                     <label class="form-label mb-2" for="email">E-Mail:</label>
                     <input aria-label="e-mail" class="form-control" id="email" name="email"
                            placeholder="email@example.com" value="<?= $data['item']['email'] ?? "" ?>">
                 </div>
-                <?php if (($data['mode'] == 0) || isset($data['item']['username']) && (session()->get("username") == $data['item']['username'])): ?>
+                <?php if (($data['mode'] == 0) || isset($data['item']['id']) && (session()->get("username") == $data['item']['id'])): ?>
                     <div class="form-group">
                         <label class="form-label mb-2" for="password">Passwort:</label>
                         <input aria-label="password" class="form-control" id="password" name="password"
                                placeholder="********" type="password">
                     </div>
                 <?php endif; ?>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="firstname">Vorname:</label>
-                    <input aria-label="first name" class="form-control" id="firstname" name="firstname"
-                           placeholder="Max" value="<?= $data['item']['firstname'] ?? "" ?>">
-                </div>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="lastname">Nachname:</label>
-                    <input aria-label="last name" class="form-control" id="lastname" name="lastname"
-                           placeholder="Mustermann" value="<?= $data['item']['lastname'] ?? "" ?>">
-                </div>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="street">Straße und Hausnummer:</label>
-                    <input aria-label="street" class="form-control" id="street" name="street"
-                           placeholder="Musterweg 1" value="<?= $data['item']['street'] ?? "" ?>">
-                </div>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="zip">PLZ:</label>
-                    <input aria-label="zip code" class="form-control" id="zip" name="zip"
-                           placeholder="12345" value="<?= $data['item']['zip'] ?? "" ?>">
-                </div>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="city">Ort:</label>
-                    <input aria-label="city" class="form-control" id="city" name="city"
-                           placeholder="Musterstadt" value="<?= $data['item']['city'] ?? "" ?>">
-                </div>
                 <?php if (!isset($data['mode']) || ($data['mode'] == 0)) : ?>
                     <button type="submit" class="btn btn-success mt-2 mb-2 mr-2">
                         Erstellen
