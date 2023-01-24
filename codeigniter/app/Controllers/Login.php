@@ -25,6 +25,8 @@ class Login extends BaseController
                 session()->set('logged_in', true);
                 session()->set('username', $_POST['username']);
                 return redirect()->to(base_url('/Projekte'));
+            } else {
+                $data['error']['wrong-credentials'] = 'Nutzername oder Passwort falsch.';
             }
         } else {
             $data['error'] = $this->validation->getErrors();
