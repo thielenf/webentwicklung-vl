@@ -37,7 +37,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                <? foreach ($data['mitglieder'] as $item): ?>
+                <?php foreach ($data['mitglieder'] as $item): ?>
                     <tr>
                         <td class="w-25"> <?= $item['username'] ?> </td>
                         <td> <?= $item['email'] ?> </td>
@@ -59,7 +59,7 @@
             <form action="<?= base_url($data['mode'] == 0 ? '/Mitglieder/create' : '/Mitglieder/update') ?>"
                   method="post" accept-charset="utf-8">
                 <legend class="">
-                    <?
+                    <?php
                     if ($data['mode'] == 0) {
                         echo 'Erstellen';
                     } elseif ($data['mode'] == 1) {
@@ -82,13 +82,13 @@
                     <input aria-label="e-mail" class="form-control" id="email" name="email"
                            placeholder="email@example.com" value="<?= $data['item']['email'] ?? "" ?>">
                 </div>
-                <? if (($data['mode'] == 0) || isset($data['item']['username']) && (session()->get("username") == $data['item']['username'])): ?>
+                <?php if (($data['mode'] == 0) || isset($data['item']['username']) && (session()->get("username") == $data['item']['username'])): ?>
                     <div class="form-group">
                         <label class="form-label mb-2" for="password">Passwort:</label>
                         <input aria-label="password" class="form-control" id="password" name="password"
                                placeholder="********" type="password">
                     </div>
-                <? endif; ?>
+                <?php endif; ?>
                 <div class="form-group">
                     <label class="form-label mb-2" for="firstname">Vorname:</label>
                     <input aria-label="first name" class="form-control" id="firstname" name="firstname"
@@ -114,17 +114,17 @@
                     <input aria-label="city" class="form-control" id="city" name="city"
                            placeholder="Musterstadt" value="<?= $data['item']['city'] ?? "" ?>">
                 </div>
-                <? if (!isset($data['mode']) || ($data['mode'] == 0)) : ?>
+                <?php if (!isset($data['mode']) || ($data['mode'] == 0)) : ?>
                     <button type="submit" class="btn btn-success mt-2 mb-2 mr-2">
                         Erstellen
                     </button>
-                <? endif ?>
+                <?php endif ?>
 
-                <? if ($data['mode'] == 1) : ?>
+                <?php if ($data['mode'] == 1) : ?>
                     <button type="submit" class="btn btn-success mt-2 mb-2 mr-2">
                         Speichern
                     </button>
-                <? endif ?>
+                <?php endif ?>
             </form>
         </div>
     </div>
