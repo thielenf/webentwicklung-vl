@@ -16,7 +16,7 @@ class Login extends BaseController
     public function index()
     {
         helper('form');
-
+        $data = array();
 
         if (isset($_POST['username']) and isset($_POST['password']) and $this->validation->run($_POST, 'login') === true) {
             $known_login = $this->MitgliederModel->login();
