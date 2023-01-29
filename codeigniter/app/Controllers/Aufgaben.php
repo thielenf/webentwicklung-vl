@@ -2,42 +2,31 @@
 
 namespace App\Controllers;
 
+use App\Models\AufgabenModel;
+use App\Models\MitgliederModel;
+
 class Aufgaben extends BaseController
 {
-    public function index()
+
+    private AufgabenModel $AufgabenModel;
+    private MitgliederModel $MitgliederModel;
+
+    public function __construct()
     {
-        $data['tasks'] = array(
-            0 => array(
-                "aufgabenbezeichnung" => "HTML Datei erstellen",
-                "description" => "HTML Datei erstellen",
-                "reiter" => "ToDo",
-                "who" => "Max Mustermann"
-            ),
-            1 => array(
-                "aufgabenbezeichnung" => "CSS Datei erstellen",
-                "description" => "CSS Datei erstellen",
-                "reiter" => "ToDo",
-                "who" => "Max Mustermann"
-            ),
-            2 => array(
-                "aufgabenbezeichnung" => "PC eingeschaltet",
-                "description" => "PC eingeschaltet",
-                "reiter" => "Erledigt",
-                "who" => "Max Mustermann"
-            ),
-            3 => array(
-                "aufgabenbezeichnung" => "Kaffee trinken",
-                "description" => "Kaffee trinken",
-                "reiter" => "Erledigt",
-                "who" => "Petra Müller"
-            ),
-            4 => array(
-                "aufgabenbezeichnung" => "Für die Uni lernen",
-                "description" => "Für die Uni lernen",
-                "reiter" => "Verschoben",
-                "who" => "Max Mustermann"
-            ),
-        );
+        $this->AufgabenModel = new AufgabenModel();
+        $this->MitgliederModel = new MitgliederModel();
+    }
+
+    public function index($data = array(), $mode = 0)
+    {
+        if (!isset($data['mode'])) {
+            $data['mode'] = 0;
+        }
+        $data['members'] = $this->MitgliederModel->getMembers();
+        $data['tasks'] = $this->AufgabenModel->getTasks();
+        $data['task_members'] = $this->AufgabenModel->getTaskMembers();
+        $data['task_tabs'] = $this->AufgabenModel->getTaskTabs();
+
         echo view('templates/header');
         echo view('Aufgaben/Aufgaben', ['data' => $data]);
         echo view('templates/footer');
