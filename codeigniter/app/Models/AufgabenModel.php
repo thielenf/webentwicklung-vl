@@ -41,7 +41,10 @@ class AufgabenModel extends Model
 
         $data = [];
         foreach ($result->getResultArray() as $row) {
-            $data[$row['task_id']] = $row['member_id'];
+            $task = $row['task_id'];
+            if (!isset($data[$task]))
+                $data[$task] = [];
+            $data[$task][] = $row['member_id'];
         }
         return $data;
     }
@@ -59,7 +62,10 @@ class AufgabenModel extends Model
 
         $data = [];
         foreach ($result->getResultArray() as $row) {
-            $data[$row['task_id']] = $row['member_id'];
+            $task = $row['task_id'];
+            if (!isset($data[$task]))
+                $data[$task] = [];
+            $data[$task][] = $row['member_id'];
         }
         return $data;
     }

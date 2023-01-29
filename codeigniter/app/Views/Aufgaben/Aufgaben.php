@@ -18,16 +18,16 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php foreach ($data['tasks'] as $item): ?>
+                <?php foreach ($data['tasks'] as $task): ?>
                     <tr>
-                        <td class="w-25"> <?= $item['id'] ?> </td>
-                        <td> <?= $item['description'] ?> </td>
-                        <td> <?= $data['task_tabs'][$item['id']] ?> </td>
+                        <td class="w-25"> <?= $task['id'] ?> </td>
+                        <td> <?= $task['description'] ?> </td>
+                        <td> <?= $data['task_tabs'][$task['id']] ?> </td>
                         <td>
                             <select class="selectpicker" multiple aria-label="Default select example"
                                     data-live-search="true">
                                 <?php foreach ($data['members'] as $member): ?>
-                                    <option value="<?= $member['id'] ?>" <?= isset($data['task_members']) ? 'selected' : '' ?>><?= $member['id'] ?></option>
+                                    <option value="<?= $member['id'] ?>" <?= in_array($member['id'], $data['task_members'][$task['id']]) ? 'selected' : '' ?>><?= $member['id'] ?></option>
                                 <?php endforeach; ?>
 
                             </select>
