@@ -18,15 +18,24 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                foreach ($data['tasks'] as $item) {
-                    echo "<tr><td class=\"w-25\">" . $item['aufgabenbezeichnung'] . "</td>";
-                    echo "<td>" . $item['description'] . "</td>";
-                    echo "<td>" . $item['reiter'] . "</td>";
-                    echo "<td>" . $item['who'] . "</td>";
-                    echo "<td class=\"\"><a href=\"\"><i class=\"table-icon fa-regular fa-trash-can\"></i></a><a href=\"\"><i class=\"table-icon fa-regular fa-pen-to-square\"></i></a></td></tr>";
-                }
-                ?>
+                <?php foreach ($data['tasks'] as $item): ?>
+                    <tr>
+                        <td class="w-25"> <?= $item['aufgabenbezeichnung'] ?> </td>
+                        <td> <?= $item['description'] ?> </td>
+                        <td> <?= $item['reiter'] ?> </td>
+                        <td>
+                            <select class="selectpicker" multiple aria-label="Default select example"
+                                    data-live-search="true">
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                                <option value="4">Four</option>
+                            </select>
+                            <!--?= $item['who'] ?>--> </td>
+                        <td class=""><a href=""><i class="table-icon fa-regular fa-trash-can"></i></a><a href=""><i
+                                        class="table-icon fa-regular fa-pen-to-square"></i></a></td>
+                    </tr>
+                <?php endforeach; ?>
                 </tbody>
             </table>
             <form class="mb-3">
@@ -62,8 +71,9 @@
             <form class="mb-3">
                 <div class="form-group">
                     <label class="form-label mb-2" for="tab-Zugehöriger Reiter">Zugehöriger Reiter:</label>
-                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">   <!--Dropdown menü-->
-                        <option selected> ToDo </option>
+                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">
+                        <!--Dropdown menü-->
+                        <option selected> ToDo</option>
                     </select>
                 </div>
             </form>
@@ -71,7 +81,8 @@
                 <div class="form-group">
                     <label class="form-label mb-2" for="tab-Zuständig">Zuständig:</label>
 
-                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">   <!--Dropdown menü-->
+                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">
+                        <!--Dropdown menü-->
                         <option selected> Max Mustermann</option>
                     </select>
                 </div>
