@@ -36,7 +36,9 @@
 
                                 </select>
                                 <!--?= $item['who'] ?>--> </td>
-                            <td class=""><a href=""><i class="table-icon fa-regular fa-trash-can"></i></a><a href=""><i
+                            <td class=""><a href="<?= base_url('Aufgaben/delete/' . $task['id']) ?>"><i
+                                            class="table-icon fa-regular fa-trash-can"></i></a><a
+                                        href="<?= base_url('Aufgaben/edit/' . $task['id']) ?>"><i
                                             class="table-icon fa-regular fa-pen-to-square"></i></a></td>
                         </tr>
                     <?php endforeach; ?>
@@ -48,25 +50,25 @@
                     <div class="form-group mb-3">
                         <label class="form-label mb-2" for="title">Aufgabenbezeichnung:</label>
                         <input aria-label="Aufgabe" class="form-control" id="task_id" name="task_id"
-                               placeholder="Aufgabe">
+                               placeholder="Aufgabe" value="<?= $data['item']['id'] ?? '' ?>">
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label mb-2" for="description">Beschreibung der Aufgabe:</label>
                         <textarea aria-label="Beschreibung" class="form-control" id="description" name="description"
-                                  placeholder="Beschreibung" rows="4"
+                                  placeholder="Beschreibung" rows="4" value="<?= $data['item']['description'] ?? '' ?>"
                         ></textarea>
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label mb-2" for="due_date">fällig bis:</label>
                         <input aria-label="fällig bis" class="form-control" id="due_date" name="due_date"
-                               placeholder="01.01.19">
+                               placeholder="01.01.19" value="<?= $data['item']['date_due'] ?? '' ?>">
                     </div>
                     <div class="form-group mb-3">
                         <label class="form-label mb-2" for="tab">Zugehöriger Reiter:</label>
-                        <select aria-label="Projekt auswählen" class="form-select" id="tab_id" name="tab_id">
+                        <select aria-label="Reiter auswählen" class="form-select" id="tab_id" name="tab_id">
                             <!--Dropdown menü-->
                             <?php foreach ($data['tabs'] as $tab): ?>
-                                <option value="<?= $tab['id'] ?>"><?= $tab['id'] ?></option>
+                                <option value="<?= $tab['id'] ?>" <?= isset($data['item']) && $data['item']['task_tab'] ? "selected" : "" ?>><?= $tab['id'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
@@ -76,7 +78,7 @@
                                 name="member_ids[]"
                                 data-live-search="true">
                             <?php foreach ($data['members'] as $member): ?>
-                                <option value="<?= $member['id'] ?>"><?= $member['id'] ?></option>
+                                <option value="<?= $member['id'] ?>" <?= isset($data['item']) && (in_array($data['item']['task_members'][$data['item']['id']], $member['id'])) ? 'selected' : '' ?>><?= $member['id'] ?></option>
                             <?php endforeach; ?>
                         </select>
                     </div>
