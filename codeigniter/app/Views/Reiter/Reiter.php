@@ -1,5 +1,7 @@
 <div class="container-fluid">
-    <header class="bg-light header container-fluid">Aufgabenplaner: Reiter</header>
+    <div class="text-bg-light p-5">
+        <h2>Aufgabenplaner: Reiter</h2>
+    </div>
     <div class="row">
         <div class="col-2">
             <?php include(APPPATH . "/Views/templates/navigation.php"); ?>
