@@ -1,5 +1,7 @@
 <div class="container-fluid">
-    <header class="bg-light header container-fluid">Aufgabenplaner: Mitglieder</header>
+    <div class="text-bg-light p-5">
+        <h2>Aufgabenplaner: Mitglieder</h2>
+    </div>
 
     <!-- Modal -->
     <div id="confirm-delete" class="modal fade" role="dialog">
