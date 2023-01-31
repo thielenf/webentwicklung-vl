@@ -32,9 +32,11 @@ class Aufgaben extends BaseController
         $data['mode'] = 1;
         if ($task_id != null) {
             $data['item'] = $this->AufgabenModel->getTasks($task_id);
+            $data['item']['task_tab'] = $this->AufgabenModel->getTaskTabs($task_id);
+            $data['item']['task_members'] = $this->AufgabenModel->getTaskMembers($task_id);
         }
 
-        $this->index($data);
+        $this->index($data, 1);
     }
 
     public function index($data = array(), $mode = 0)

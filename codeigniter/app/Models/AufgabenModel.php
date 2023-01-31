@@ -90,11 +90,14 @@ class AufgabenModel extends Model
 
     public function createTask()
     {
+        $this->db->transBegin();
+
         // 'tasks'
         $data = array(
-            'task_id' => $_POST['task_id'],
+            'id' => $_POST['task_id'],
             'description' => $_POST['description'],
-            'date_due' => $_POST['date_due'],
+            'date_created' => date("Y-m-d"),
+            'date_due' => $_POST['due_date']
         );
 
         $tasks = $this->db->table('tasks');
@@ -103,7 +106,7 @@ class AufgabenModel extends Model
         // 'tasks_creators'
         $data = array(
             'task_id' => $_POST['task_id'],
-            'member_id' => $_POST['creator_id'],
+            'member_id' => session()->get('username'),
         );
 
         $tasks_creators = $this->db->table('tasks_creators');
@@ -127,6 +130,12 @@ class AufgabenModel extends Model
 
         $tasks_tabs = $this->db->table('tasks_tabs');
         $tasks_tabs->insert($data);
+
+        if ($this->db->transStatus() === false) {
+            $this->db->transRollback();
+        } else {
+            $this->db->transCommit();
+        }
     }
 
     public function updateTask()
