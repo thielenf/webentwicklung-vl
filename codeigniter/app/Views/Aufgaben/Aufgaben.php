@@ -1,7 +1,11 @@
 <div class="container-fluid">
-    <header class="bg-light header container-fluid">Aufgabenplaner: Aufgaben</header>
+    <div class="card text-center border-0 mb-3">
+        <div class="text-bg-light p-5">
+            <h2>Aufgabenplaner: Aufgaben</h2>
+        </div>
     <div class="row">
         <div class="col-2">
+
             <?php include(APPPATH . "/Views/templates/navigation.php"); ?>
         </div>
 
