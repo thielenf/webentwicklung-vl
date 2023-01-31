@@ -39,6 +39,10 @@ $routes->get('/', 'Login::index');
 $routes->get('/Login', 'Login::index');
 $routes->post('/Login', 'Login::index');
 $routes->get('/Aufgaben', 'Aufgaben::index');
+$routes->get('/Aufgaben/edit/(:any)', 'Aufgaben::edit/$1');
+$routes->post('/Aufgaben/update', 'Aufgaben::update');
+$routes->post('/Aufgaben/create', 'Aufgaben::createMember');
+$routes->get('/Aufgaben/delete/(:any)', 'Aufgaben::deleteTask/$1'); // FIXME: dirty! don't GET!
 $routes->get('/Mitglieder', 'Mitglieder::index');
 $routes->get('/Mitglieder/edit/(:any)', 'Mitglieder::edit/$1');
 $routes->post('/Mitglieder/update', 'Mitglieder::update');

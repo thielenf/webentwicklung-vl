@@ -24,7 +24,7 @@
                         <td> <?= $task['description'] ?> </td>
                         <td> <?= $data['task_tabs'][$task['id']] ?> </td>
                         <td>
-                            <select class="selectpicker" multiple aria-label="Default select example"
+                            <select class="selectpicker" multiple aria-label="Zuständige Mitglieder wählen"
                                     data-live-search="true">
                                 <?php foreach ($data['members'] as $member): ?>
                                     <option value="<?= $member['id'] ?>" <?= in_array($member['id'], $data['task_members'][$task['id']]) ? 'selected' : '' ?>><?= $member['id'] ?></option>
@@ -38,57 +38,45 @@
                 <?php endforeach; ?>
                 </tbody>
             </table>
-            <form class="mb-3">
-                <h4 class="">Bearbeiten/Erstellen</h4>
-                <div class="form-group">
-                    <label class="form-label mb-2" for="tab-aufgabenbezeichnung">Aufgabenbezeichnung:</label>
-                    <input aria-label="Aufgabe" class="form-control" id="tab-aufgabenbezeichnung"
+            <form action="<?= base_url($data['mode'] == 0 ? '/Aufgaben/create' : '/Aufgaben/update') ?>" class="">
+                <legend class=""><?= ($data['mode'] == 0) ? 'Erstellen' : 'Bearbeiten' ?></legend>
+                <div class="form-group mb-3">
+                    <label class="form-label mb-2" for="title">Aufgabenbezeichnung:</label>
+                    <input aria-label="Aufgabe" class="form-control" id="title" name="title"
                            placeholder="Aufgabe">
                 </div>
-            </form>
-            <form class="mb-3">
-                <div class="form-group">
-                    <label class="form-label mb-2" for="tab-description">Beschreibung der Aufgabe:</label>
-                    <textarea aria-label="Beschreibung" class="form-control" id="tab-description"
+                <div class="form-group mb-3">
+                    <label class="form-label mb-2" for="description">Beschreibung der Aufgabe:</label>
+                    <textarea aria-label="Beschreibung" class="form-control" id="description" name="description"
                               placeholder="Beschreibung" rows="4"
                     ></textarea>
                 </div>
-            </form>
-            <form class="mb-3">
-                <div class="form-group">
-                    <label class="form-label mb-2" for="tab-Erstellungsdatum">Erstellungsdatum:</label>
-                    <input aria-label="Erstellungsdatum" class="form-control" id="tab-Erstellungsdatum"
+                <div class="form-group mb-3">
+                    <label class="form-label mb-2" for="due_date">fällig bis:</label>
+                    <input aria-label="fällig bis" class="form-control" id="due_date" name="due_date"
                            placeholder="01.01.19">
                 </div>
-            </form>
-            <form class="mb-3">
-                <div class="form-group">
-                    <label class="form-label mb-2" for="tab-fällig bis">fällig bis:</label>
-                    <input aria-label="fällig bis" class="form-control" id="tab-fällig bis"
-                           placeholder="01.01.19">
-                </div>
-            </form>
-            <form class="mb-3">
-                <div class="form-group">
-                    <label class="form-label mb-2" for="tab-Zugehöriger Reiter">Zugehöriger Reiter:</label>
-                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">
+                <div class="form-group mb-3">
+                    <label class="form-label mb-2" for="tab">Zugehöriger Reiter:</label>
+                    <select aria-label="Projekt auswählen" class="form-select" id="tab" name="tab">
                         <!--Dropdown menü-->
-                        <option selected> ToDo</option>
+                        <?php foreach ($data['tabs'] as $tab): ?>
+                            <option value="<?= $tab['id'] ?>"><?= $tab['id'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
-            </form>
-            <form class="mb-3">
-                <div class="form-group">
+                <div class="form-group mb-3">
                     <label class="form-label mb-2" for="tab-Zuständig">Zuständig:</label>
-
-                    <select aria-label="Projekt auswählen" class="form-select" id="choose-project">
-                        <!--Dropdown menü-->
-                        <option selected> Max Mustermann</option>
+                    <select class="selectpicker" multiple aria-label="Zuständige Mitglieder wählen"
+                            data-live-search="true">
+                        <?php foreach ($data['members'] as $member): ?>
+                            <option value="<?= $member['id'] ?>"><?= $member['id'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="mt-3">
                     <button class="btn btn-primary" type="submit">
-                        Speichern
+                        <?= ($data['mode'] == 0) ? 'Erstellen' : 'Speichern' ?>
                     </button>
                     <button class="btn btn-info text-white" type="submit">
                         Reset
